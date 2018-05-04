@@ -1,6 +1,6 @@
 {
   "name": "jeedom-request-jsonrpc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Module node pour API JEEDOM JSON-RPC",
   "main": "/lib/jeedom-request-jsonrpc.js",
   "repository": {
@@ -11,9 +11,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "jeedom"
+    "jeedom", "api", "json"
   ],
-  "author": "",
+  "author": "Clement BERARD",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0"
