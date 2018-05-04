@@ -1,15 +1,14 @@
 # Jeedom API - JSON RPC
 
-
-## Installation
-
-`npm i jeedom-request-jsonrpc`
-
 ## Description
 
 Module NodeJs pour les appels de l'API Json RPC de Jeedom : https://jeedom.github.io/core/fr_FR/jsonrpc_api
 
 Ce module utilise `axios` (https://github.com/axios/axios)
+
+## Installation
+
+`npm i jeedom-request-jsonrpc`
 
 ## Exemple complet (pour les plus rapides ! Détails en dessous :)
 
