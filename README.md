@@ -56,7 +56,7 @@ const jeedomApiJson = new jeedomApiModule(
 Le constructeur de la classe est le suivant : 
 
 ```javascript
-constructor(url, apikey, reqParams = {}, jsonrpc = '2.0') {
+constructor(url, apikey, reqParams = {}, options = {}, jsonrpc = '2.0') {
         this.url = url
         this.apikey = apikey
         this.reqParams = reqParams
