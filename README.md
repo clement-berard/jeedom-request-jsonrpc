@@ -47,11 +47,41 @@ Exemple : `object::full` devient `objectFull`, `cmd::execCmd` devient `cmdExecCm
 
 ## Appel des fonctions
 
+Chaque function execute la requete et renvoit une Promise :
+
+```
+let req = jeedomApiJson.messageAll()
+
+req
+.then(response => {
+    console.log('je sui sun geni', response.data)
+})
+.catch(error => {
+    console.log('je sui sun error',error)
+})
+```
 
 
 ## Exemple complet
 
 ```
+const jeedomApiModule = require('./jeedom-request');
+const axios = require('axios')
+
+const jeedomApiJson = new jeedomApiModule(
+    '{IP-JEEDOM}/core/api/jeeApi.php',
+    'mon-api-key'
+)
+
+let req = jeedomApiJson.messageAll()
+
+req
+.then(response => {
+    console.log('je sui sun geni', response.data)
+})
+.catch(error => {
+    console.log('je sui sun error',error)
+})
 
 ```
 
