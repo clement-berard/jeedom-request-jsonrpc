@@ -49,7 +49,7 @@ Exemple : `object::full` devient `objectFull`, `cmd::execCmd` devient `cmdExecCm
 
 Chaque function execute la requete et renvoit une Promise :
 
-```
+```javascript
 let req = jeedomApiJson.messageAll()
 
 req
@@ -65,7 +65,7 @@ La réponse est alors contenue dans `response.data`
 
 ## Exemple complet
 
-```
+```javascript
 const jeedomApiModule = require('./jeedom-request');
 const axios = require('axios')
 
