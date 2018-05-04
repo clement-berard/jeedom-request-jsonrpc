@@ -1,7 +1,7 @@
 # Jeedom API - JSON RPC
 
 
-Disponible sur NPM : 
+## Installation
 
 `npm i jeedom-request-jsonrpc`
 
