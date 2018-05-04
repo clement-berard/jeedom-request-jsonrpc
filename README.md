@@ -61,6 +61,7 @@ req
 })
 ```
 
+La réponse est alors contenue dans `response.data`
 
 ## Exemple complet
 
