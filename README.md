@@ -6,6 +6,31 @@ Module NodeJs pour les appels de l'API Json RPC de Jeedom : https://jeedom.githu
 
 Ce module utilise `axios` (https://github.com/axios/axios)
 
+## Exemple complet (pour les plus rapides ! Détails en dessous :)
+
+```javascript
+const jeedomApiModule = require('./jeedom-request');
+
+const jeedomApiJson = new jeedomApiModule(
+    '{IP-JEEDOM}/core/api/jeeApi.php',
+    'mon-api-key'
+)
+
+// je veux executer la method cmd::execCmd
+let req = jeedomApiJson.cmd_execCmd({
+    id: 802
+})
+
+req
+.then(response => {
+    console.log('Ma reponse est : ', response.data)
+})
+.catch(error => {
+    console.log('Oups une erreur : ',error)
+})
+
+```
+
 ## Initialisation
 
 Require du module : 
@@ -43,7 +68,7 @@ Les fonctions disponibles sont celle de l'API (https://jeedom.github.io/core/fr_
 
 Les fonctions sont formées de cette facon : 
 
-Exemple : `object::full` devient `objectFull`, `cmd::execCmd` devient `cmdExecCmd` etc...
+Exemple : `object::full` devient `object_full`, `cmd::execCmd` devient `cmd_execCmd` etc...
 
 ## Appel des fonctions
 
@@ -63,27 +88,6 @@ req
 
 La réponse est alors contenue dans `response.data`
 
-## Exemple complet
 
-```javascript
-const jeedomApiModule = require('./jeedom-request');
-const axios = require('axios')
-
-const jeedomApiJson = new jeedomApiModule(
-    '{IP-JEEDOM}/core/api/jeeApi.php',
-    'mon-api-key'
-)
-
-let req = jeedomApiJson.messageAll()
-
-req
-.then(response => {
-    console.log('Ma reponse est : ', response.data)
-})
-.catch(error => {
-    console.log('Oups une erreur : ',error)
-})
-
-```
 
 
