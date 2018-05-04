@@ -54,10 +54,10 @@ let req = jeedomApiJson.messageAll()
 
 req
 .then(response => {
-    console.log('je sui sun geni', response.data)
+    console.log('Ma reponse est : ', response.data)
 })
 .catch(error => {
-    console.log('je sui sun error',error)
+    console.log('Oups une erreur : ',error)
 })
 ```
 
@@ -78,10 +78,10 @@ let req = jeedomApiJson.messageAll()
 
 req
 .then(response => {
-    console.log('je sui sun geni', response.data)
+    console.log('Ma reponse est : ', response.data)
 })
 .catch(error => {
-    console.log('je sui sun error',error)
+    console.log('Oups une erreur : ',error)
 })
 
 ```
