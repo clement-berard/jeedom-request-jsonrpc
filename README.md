@@ -1,4 +1,4 @@
-# Jeedom API - JSON RPC
+# Jeedom API - JSON RPC 2.0
 
 ## Description
 
@@ -13,17 +13,18 @@ Ce module utilise `axios` (https://github.com/axios/axios)
 ## Exemple complet (pour les plus rapides ! Détails en dessous :)
 
 ```javascript
-const jeedomApiModule = require('jeedom-request-jsonrpc');
+const {apiJeedom, constantsJeedom} = require('./lib/jeedom-request-jsonrpc')
 
-const jeedomApiJson = new jeedomApiModule(
+const apiJeedomRunnable = new apiJeedom(
     '{IP-JEEDOM}/core/api/jeeApi.php',
     'mon-api-key'
 )
 
-// je veux executer la method cmd::execCmd
-let req = jeedomApiJson.cmd_execCmd({
-    id: 802
-})
+let req = apiJeedomRunnable.run(
+    'scenario::changeState', {
+        id: 11,
+        state: 'run'
+    })
 
 req
 .then(response => {
@@ -37,16 +38,16 @@ req
 
 ## Initialisation
 
-Require du module : 
+Require du module (qui export la classe API et des constantes) : 
 
 ```javascript
-const jeedomApiModule = require('jeedom-request-jsonrpc');
+const {apiJeedom, constantsJeedom} = require('./lib/jeedom-request-jsonrpc')
 ```
 
 On déclare une nouvelle classe avec :
 
 ```javascript
-const jeedomApiJson = new jeedomApiModule(
+const apiJeedomRunnable = new apiJeedom(
     '{IP-JEEDOM}/core/api/jeeApi.php',
     'mon-api-key'
 )
@@ -55,7 +56,8 @@ const jeedomApiJson = new jeedomApiModule(
 Le constructeur de la classe est le suivant : 
 
 ```javascript
-constructor(url, apikey, reqParams = {}, options = {}, jsonrpc = '2.0') {
+constructor(url, apikey, reqParams = {}, options = {}, jsonrpc = '2.0')
+{
         this.url = url
         this.apikey = apikey
         this.reqParams = reqParams
@@ -72,14 +74,25 @@ Les fonctions disponibles sont celle de l'API (https://jeedom.github.io/core/fr_
 
 Les fonctions sont formées de cette facon : 
 
-Exemple : `object::full` devient `object_full`, `cmd::execCmd` devient `cmd_execCmd` etc...
+```javascript
+run(mcd, params = {}) {
+        return this._getResult(mcd, params)
+    }
+```
+
+- `mcd` est la commande de l'API
+- `params` les parametres lies a cette commande
 
 ## Appel des fonctions
 
-Chaque function execute la requete et renvoit une Promise :
+Chaque function execute la requete avec une commande de l'API et renvoit une Promise :
 
 ```javascript
-let req = jeedomApiJson.messageAll()
+let req = apiJeedomRunnable.run(
+    'scenario::changeState', {
+        id: 11,
+        state: 'run'
+    })
 
 req
 .then(response => {
@@ -89,6 +102,8 @@ req
     console.log('Oups une erreur : ',error)
 })
 ```
+
+ou `scenario::changeState` est un exemple de commande disponible ici https://jeedom.github.io/core/fr_FR/jsonrpc_api
 
 La réponse est alors contenue dans `response.data`
 
