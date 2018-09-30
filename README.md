@@ -8,65 +8,83 @@ Ce module utilise `axios` (https://github.com/axios/axios)
 
 ## Installation
 
-`npm i jeedom-request-jsonrpc`
+`npm i jeedom-request-jsonrpc --save` ou  `yarn add jeedom-request-jsonrpc`
 
-## Exemple complet (pour les plus rapides ! Détails en dessous :)
+## Get Started
+
+Import du package : 
 
 ```javascript
-const {apiJeedom, constantsJeedom} = require('./lib/jeedom-request-jsonrpc')
+const {apiJeedom, constantsJeedom} = require('jeedom-request-jsonrpc')
+```
 
+Import et instanciation de la class jeedomApi : 
+
+```javascript
 const apiJeedomRunnable = new apiJeedom(
     '{IP-JEEDOM}/core/api/jeeApi.php',
     'mon-api-key'
 )
+```
 
+Création de la requete : 
+
+```javascript
 let req = apiJeedomRunnable.run(
     'scenario::changeState', {
         id: 11,
         state: 'run'
     })
+```
 
+Exemple 1 : 
+
+```javascript
 req
 .then(response => {
-    console.log('Ma reponse est : ', response.data)
+    console.log('Ma reponse est : ', response.result)
 })
 .catch(error => {
-    console.log('Oups une erreur : ',error)
+    console.log('Oups une erreur : ', error)
 })
-
 ```
 
-## Initialisation
-
-Require du module (qui export la classe API et des constantes) : 
+Exemple 2 : 
 
 ```javascript
-const {apiJeedom, constantsJeedom} = require('./lib/jeedom-request-jsonrpc')
+const functionForRequestJeedom = async () => {
+    try {
+        let maReponseJeedom = await requestJeedom
+        console.log("maReponseJeedom", maReponseJeedom)
+    } catch (e) {
+        cb(e)
+    }
+}
+
+functionForRequestJeedom()
 ```
 
-On déclare une nouvelle classe avec :
+## Request Result
 
-```javascript
-const apiJeedomRunnable = new apiJeedom(
-    '{IP-JEEDOM}/core/api/jeeApi.php',
-    'mon-api-key'
-)
-```
+Le resultat de la requete est sous la forme : 
 
-Le constructeur de la classe est le suivant : 
-
-```javascript
-constructor(url, apikey, reqParams = {}, options = {}, jsonrpc = '2.0')
+```json
+// dans le cas d'une instruction sans retour de valeur
 {
-        this.url = url
-        this.apikey = apikey
-        this.reqParams = reqParams
-        this.jsonrpc = jsonrpc
+    "result": true,
+    "status": 200,
+    "statusText":"OK"
+}
+// dans le cas d'une instruction sans retour de valeur
+{
+     "result":{
+         "collectDate": "2018-09-30 14:49:03",
+         "value": 21.2
+     },
+     "status": 200,
+     "statusText":"OK"
 }
 ```
-
-`reqParams` sont les parametres de `axios` disponible a cette url https://github.com/axios/axios#request-config
-
 
 ## Fonctions disponibles
 
@@ -83,30 +101,13 @@ run(mcd, params = {}) {
 - `mcd` est la commande de l'API
 - `params` les parametres lies a cette commande
 
-## Appel des fonctions
 
-Chaque function execute la requete avec une commande de l'API et renvoit une Promise :
+## Changelog
 
-```javascript
-let req = apiJeedomRunnable.run(
-    'scenario::changeState', {
-        id: 11,
-        state: 'run'
-    })
+### 1.0.4 (Octobre 2018)
 
-req
-.then(response => {
-    console.log('Ma reponse est : ', response.data)
-})
-.catch(error => {
-    console.log('Oups une erreur : ',error)
-})
-```
-
-ou `scenario::changeState` est un exemple de commande disponible ici https://jeedom.github.io/core/fr_FR/jsonrpc_api
-
-La réponse est alors contenue dans `response.data`
-
-
+- Amélioration de la gestion des erreurs (messages et catch)
+- Bug fix
+- Correction documentation
 
 
