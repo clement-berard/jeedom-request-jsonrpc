@@ -75,7 +75,7 @@ Le resultat de la requete est sous la forme :
     "status": 200,
     "statusText":"OK"
 }
-// dans le cas d'une instruction sans retour de valeur
+// dans le cas d'une instruction avec retour de valeur
 {
      "result":{
          "collectDate": "2018-09-30 14:49:03",
