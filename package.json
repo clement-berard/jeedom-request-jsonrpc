@@ -1,6 +1,6 @@
 {
   "name": "jeedom-request-jsonrpc",
-  "version": "1.0.5",
+  "version": "1.0.3",
   "description": "Module node pour API JEEDOM JSON-RPC",
   "main": "/lib/jeedom-request-jsonrpc.js",
   "repository": {
