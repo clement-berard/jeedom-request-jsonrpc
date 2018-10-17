@@ -1,4 +1,23 @@
-# Jeedom API - JSON RPC 2.0
+<p align="center">
+  <a href="https://vuetifyjs.com" target="_blank">
+    <img width="100"src="https://i2.wp.com/poneynumerique.fr/wp-content/uploads/2015/08/jeedom.png">
+     <img width="100"src="https://image.flaticon.com/icons/png/512/460/460989.png">
+  </a>
+</p>
+
+<p align="center">
+  Jeedom API - JSON RPC 2.0 for NodeJs
+</p>
+
+<p align="center">  
+    <a href="https://www.npmjs.com/package/jeedom-request-jsonrpc">
+        <img src="https://img.shields.io/npm/v/jeedom-request-jsonrpc.svg" alt="Coverage">
+    </a>
+    <a href="https://www.npmjs.com/package/jeedom-request-jsonrpc">
+        <img src="https://img.shields.io/npm/dw/jeedom-request-jsonrpc.svg" alt="Coverage">
+    </a>
+</p>
+
 
 ## Description
 
@@ -101,6 +120,10 @@ run(mcd, params = {}) {
 - `mcd` est la commande de l'API
 - `params` les parametres lies a cette commande
 
+## Liens utiles
+
+- https://www.jsonrpc.org/specification
+- https://jeedom.github.io/core/fr_FR/jsonrpc_api
 
 ## Changelog
 
