@@ -127,6 +127,10 @@ run(mcd, params = {}) {
 
 ## Changelog
 
+### 1.0.5 (Octobre 2018)
+
+- Add Typescript Definitions
+
 ### 1.0.4 (Octobre 2018)
 
 - Amélioration de la gestion des erreurs (messages et catch)
