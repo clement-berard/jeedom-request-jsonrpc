@@ -1,1 +1,1 @@
-module.exports = require('./lib/jeedom-request-jsonrpc');
+module.exports = require('./lib/jeedom-request-jsonrpc')

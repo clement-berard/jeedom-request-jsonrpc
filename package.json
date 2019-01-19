@@ -8,7 +8,7 @@
     "url": "https://github.com/clement-berard/jeedom-request-jsonrpc.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "yarn eslint lib/jeedom-request-jsonrpc.js"
   },
   "keywords": [
     "jeedom",
@@ -18,10 +18,8 @@
   "author": "Clement BERARD",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
-    "npm": "^6.0.1",
-    "to": "^0.2.9",
-    "update": "^0.7.4"
+    "axios": "0.18.0",
+    "to": "0.2.9"
   },
   "devDependencies": {
     "eslint": "^5.6.0",
