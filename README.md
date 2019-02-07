@@ -27,7 +27,7 @@ This module uses axios (https://github.com/axios/axios)
 
 ## Install
 
-- `npm i jeedom-request-jsonrpc --save` or
+- `npm i jeedom-request-jsonrpc --save`
 - `yarn add jeedom-request-jsonrpc`
 
 ## Get Started
@@ -50,7 +50,7 @@ const apiJeedomRunnable = new apiJeedom(
 Make a request: 
 
 ```javascript
-let requestJeedom = apiJeedomRunnable.run(
+const requestJeedom = apiJeedomRunnable.run(
     'scenario::changeState', {
         id: 11,
         state: 'run'
@@ -64,7 +64,7 @@ Details of `run` function:
 - `cmd` command of API
 - `params` params belongs to command
 
-Example 1 : 
+Example 1 : (`Promise flow`)
 
 ```javascript
 requestJeedom
@@ -76,13 +76,13 @@ requestJeedom
 })
 ```
 
-Example 2 : 
+Example 2 : (`async - await`)
 
 ```javascript
 const functionToRequestJeedom = async () => {
     try {
         let jeedomResponse = await requestJeedom
-        console.log("Response tree", jeedomResponse)
+        console.log("Response", jeedomResponse)
     } catch (e) {
         cb(e)
     }
@@ -98,18 +98,18 @@ Two examples of request result:
 ```json
 // without a value returned
 {
-    "result": true,
     "status": 200,
-    "statusText":"OK"
+    "statusText":"OK",
+    "result": true
 }
 // with a value returned
 {
-     "result":{
-         "collectDate": "2018-09-30 14:49:03",
-         "value": 21.2
-     },
-     "status": 200,
-     "statusText":"OK"
+    "status": 200,
+    "statusText":"OK",
+    "result":{
+        "collectDate": "2018-09-30 14:49:03",
+        "value": 21.2
+     }
 }
 ```
 
