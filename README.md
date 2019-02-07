@@ -27,7 +27,7 @@ This module uses axios (https://github.com/axios/axios)
 
 ## Install
 
-- `npm i jeedom-request-jsonrpc --save` or
+- `npm i jeedom-request-jsonrpc --save`
 - `yarn add jeedom-request-jsonrpc`
 
 ## Get Started
@@ -50,7 +50,7 @@ const apiJeedomRunnable = new apiJeedom(
 Make a request: 
 
 ```javascript
-let requestJeedom = apiJeedomRunnable.run(
+const requestJeedom = apiJeedomRunnable.run(
     'scenario::changeState', {
         id: 11,
         state: 'run'
