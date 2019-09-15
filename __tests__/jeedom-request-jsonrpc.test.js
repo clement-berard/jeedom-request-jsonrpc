@@ -116,7 +116,7 @@ it('_getBody', () => {
 
 it('run', () => {
   const jeedomInstance = getJeedomInstance()
-  const expected = { jsonrpc: '2.0', method: 'POST', params: { apikey: 'mykey' } }
+  const expected = { jsonrpc: '2.0', method: 'POST', params: { apikey: 'myksey' } }
   expect(jeedomInstance._getBody('POST')).toEqual(expected)
 })
 
