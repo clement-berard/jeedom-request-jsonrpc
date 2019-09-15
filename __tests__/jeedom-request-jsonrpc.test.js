@@ -57,6 +57,19 @@ const goodResultApi = {
     }
   }
 }
+
+const goodResultApi2 = {
+  statusCode: 200,
+  statusMessage: "OK",
+  body: {
+    jsonrpc: "2.0",
+    id: 99999,
+    result: {
+      value: ''
+    }
+  }
+}
+
 const goodResult = {
   statusCode: 200,
   statusMessage: "OK",
@@ -127,5 +140,23 @@ describe('run function', () => {
     const { cmd, params } = goodParams
     const result = await jeedomInstance.run(cmd, params)
     expect(result).toEqual(goodResult)
+    spy.mockRestore()
+  })
+
+  it('cmd exist without a value', async () => {
+    const jeedomInstance = getJeedomInstance()
+    const spy = jest.spyOn(jeedomInstance, 'jeedomRequest').mockImplementation(() => goodResultApi2)
+    const { cmd, params } = goodParams
+    const result = await jeedomInstance.run(cmd, params)
+    expect(result).toEqual({ statusCode: 200, statusMessage: "OK", result: true, error: false })
+    spy.mockRestore()
+  })
+
+  it('request failed with error server', async () => {
+    const jeedomInstance = getJeedomInstance()
+    const spy = jest.spyOn(jeedomInstance, 'jeedomRequest').mockImplementation(() => ({ statusCode: 500, statusMessage: 'NOK', body: {} }))
+    const { cmd, params } = goodParams
+    await expect(jeedomInstance.run(cmd, params)).rejects.toThrowError()
+    spy.mockRestore()
   })
 })
