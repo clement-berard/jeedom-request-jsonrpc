@@ -5,6 +5,7 @@
   </a>
 </p>
 
+<h1 align="center">Welcome to jeedom-request-jsonrpc 👋</h1>
 <p align="center">
   Jeedom API - JSON RPC 2.0 for NodeJs
 </p>
@@ -18,12 +19,11 @@
     </a>
 </p>
 
-
 ## Overview
 
 Node module to calls Jeedom's RPC API : https://jeedom.github.io/core/fr_FR/jsonrpc_api
 
-This module uses axios (https://github.com/axios/axios)
+This module uses phin for request (https://github.com/ethanent/phin)
 
 ## Install
 
@@ -47,6 +47,16 @@ const apiJeedomRunnable = new apiJeedom(
 )
 ```
 
+Details of `apiJeedom` function:
+
+`apiJeedom(jeedomHost, apikey, reqParams = {}, jsonrpc = '2.0', uriJeedomApi = '/core/api/jeeApi.php')`
+
+- `jeedomHost` host of jeedom server
+- `apikey` api key of jeedom
+- `reqParams` optionnals params to add to request ([phin package options](https://github.com/ethanent/phin#custom-core-http-options))
+- `jsonrpc` version of jsonrpc
+- `uriJeedomApi` base url of jeedom server
+
 Make a request: 
 
 ```javascript
@@ -57,9 +67,9 @@ const requestJeedom = apiJeedomRunnable.run(
     })
 ```
 
-Details of `run` function:
+Details of `apiJeedomRunnable.run` function:
 
-`run(cmd, params)`
+`apiJeedomRunnable.run(cmd, params)`
 
 - `cmd` command of API
 - `params` params belongs to command
@@ -91,25 +101,45 @@ const functionToRequestJeedom = async () => {
 functionToRequestJeedom()
 ```
 
-## Request Result
-
-Two examples of request result: 
+## Requests result examples 
+ 
+### without a value returned
 
 ```json
-// without a value returned
+
 {
-    "status": 200,
-    "statusText":"OK",
-    "result": true
+    "statusCode": 200,
+    "statusMessage":"OK",
+    "result": true,
+    "error": false
 }
-// with a value returned
+```
+
+### with a value returned
+
+```json
 {
-    "status": 200,
-    "statusText":"OK",
+    "statusCode": 200,
+    "statusMessage":"OK",
     "result":{
         "collectDate": "2018-09-30 14:49:03",
         "value": 21.2
-     }
+     },
+    "error": false
+}
+```
+
+### with an error
+
+```json
+{
+  "statusCode": 200,
+  "statusMessage": "OK",
+  "result": false,
+  "error": {
+    "code": 701,
+    "message": "Cmd introuvable : 63334"
+  }
 }
 ```
 
@@ -120,20 +150,4 @@ Two examples of request result:
 
 ## Changelog
 
-### 1.0.6 (January 2019)
-
-- Fix documentation
-- Delete some useless packages
-- Refactor of code
-
-### 1.0.5 (October 2018)
-
-- Add Typescript Definitions
-
-### 1.0.4 (October 2018)
-
-- Improve error managment
-- Bugs fix
-- Fix documentation
-
-
+https://github.com/clement-berard/jeedom-request-jsonrpc/releases
