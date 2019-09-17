@@ -17,6 +17,9 @@
     <a href="https://www.npmjs.com/package/jeedom-request-jsonrpc">
         <img src="https://img.shields.io/npm/dw/jeedom-request-jsonrpc.svg" alt="Coverage">
     </a>
+    <a href="https://travis-ci.org/clement-berard/jeedom-request-jsonrpc">
+            <img src="https://img.shields.io/travis/clement-berard/jeedom-request-jsonrpc" alt="Coverage">
+    </a>
 </p>
 
 ## Overview
