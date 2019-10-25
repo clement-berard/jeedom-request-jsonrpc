@@ -24,6 +24,8 @@
 
 ## Overview
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/clement-berard/jeedom-request-jsonrpc.svg)](https://greenkeeper.io/)
+
 Node module to calls Jeedom's RPC API : https://jeedom.github.io/core/fr_FR/jsonrpc_api
 
 This module uses phin for request (https://github.com/ethanent/phin)
