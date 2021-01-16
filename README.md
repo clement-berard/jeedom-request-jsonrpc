@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://vuetifyjs.com" target="_blank">
+  <a href="#" target="_blank">
     <img width="100"src="https://i2.wp.com/poneynumerique.fr/wp-content/uploads/2015/08/jeedom.png">
      <img width="100"src="https://image.flaticon.com/icons/png/512/460/460989.png">
   </a>
@@ -24,9 +24,7 @@
 
 ## Overview
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/clement-berard/jeedom-request-jsonrpc.svg)](https://greenkeeper.io/)
-
-Node module to calls Jeedom's RPC API : https://jeedom.github.io/core/fr_FR/jsonrpc_api
+Node module to calls Jeedom's RPC API : https://doc.jeedom.com/fr_FR/core/4.0/jsonrpc_api
 
 This module uses phin for request (https://github.com/ethanent/phin)
 
@@ -151,7 +149,7 @@ functionToRequestJeedom()
 ## Useful links
 
 - https://www.jsonrpc.org/specification
-- https://jeedom.github.io/core/fr_FR/jsonrpc_api
+- https://doc.jeedom.com/fr_FR/core/4.0/jsonrpc_api
 
 ## Changelog
 
